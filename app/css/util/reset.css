@@ -1,0 +1,12 @@
+*,::before,::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  /* Normalized margins. See http://bit.ly/1H7MXUD for details on this move. */
+  * + * {
+    margin-top: 1rem;
+  }
+}
