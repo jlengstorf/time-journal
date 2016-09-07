@@ -1,0 +1,47 @@
+.journal {
+
+  &__heading {
+
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+    &__input-group {
+      flex: 2 100%;
+
+      &--half {
+        flex: 1 45%;
+        max-width: calc( 50% - 0.5rem );
+
+        &+& {
+          margin-top: 0;
+        }
+      }
+
+      &--one-third {
+        flex: 1 33%;
+        max-width: calc( 33% - 0.5rem );
+
+        &+& {
+          margin-top: 0;
+        }
+      }
+    }
+
+      &__label {
+
+      }
+
+      &__input {
+        width: 100%;
+        margin-top: 0;
+      }
+
+    &__submit {
+      width: 100%;
+    }
+}
