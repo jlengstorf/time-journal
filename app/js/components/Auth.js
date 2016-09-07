@@ -10,8 +10,20 @@ const handleSignUp = event => {
 
   const email = event.target.elements.email.value;
   const password = event.target.elements.password.value;
+  const name = event.target.elements.name.value;
 
   firebase.auth().createUserWithEmailAndPassword(email, password).then(user => {
+    console.log('Logged in!');
+    console.log(user);
+    console.log(name);
+
+    user.updateProfile({
+      displayName: name,
+    }).then(() => {
+      console.log('Name updated.');
+      console.log(user.displayName);
+    });
+
     if (!user.emailVerified) {
       user.sendEmailVerification();
     }
@@ -26,7 +38,8 @@ const handleLogIn = event => {
 
   firebase.auth().signInWithEmailAndPassword(email, password).then(user => {
     if (!user.emailVerified) {
-      user.sendEmailVerification();
+
+      // TODO Add a notice about the unverified email with a link to resend.
     }
   });
 };
@@ -57,7 +70,7 @@ const Auth = props => {
   return (
     <div className={getClass()}>
       <header className={getClass('header')}>
-        <h1 className={getClass('heading')}>Time Journal</h1>
+        <h1 className={`u-heading ${getClass('heading')}`}>Time Journal</h1>
         <p className={getClass('lede')}>
           Tagline goes here. Let’s assume it’ll span two lines of text or so.
         </p>

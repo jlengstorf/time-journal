@@ -8,6 +8,14 @@ const SignUp = props => (
         onSubmit={props.submitCB}>
     <h2 className={getClass('heading')}>Create Your Free Account</h2>
     <div className={getClass('input-group')}>
+      <label htmlFor='sign-up-name'
+             className={`u-label ${getClass('label')}`}>
+        What Should We Call You?
+      </label>
+      <input type='text' id='sign-up-name' name='name'
+             className={`u-input ${getClass('input', ['name'])}`} />
+    </div>
+    <div className={getClass('input-group')}>
       <label htmlFor='sign-up-email'
              className={`u-label ${getClass('label')}`}>
         Enter Your Email
