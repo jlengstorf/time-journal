@@ -1,0 +1,55 @@
+.app-nav {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: $color-main;
+  border-top: 4px solid $color-pop;
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $color-main;
+    border-top: 2px solid $color-background;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &__link {
+    flex: 1 33%;
+    margin: 0;
+    padding: 2.125rem 0.5rem 0.25rem;
+    background-position: top 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.375rem;
+    color: $color-background;
+    font-size: 60%;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &--active {
+      background-color: $color-background;
+      color: $color-main;
+    }
+
+    /*
+     * This is a shortcut to avoid writing out multiple rules to change icons.
+     * It relies on `postcss-each` and is in direct violation of the
+     * recommendations I typically make about keeping stylesheets simple.
+     *
+     * In a battle between Doing It Right™ and Doing It Fast®, expedience wins.
+     */
+    @each $link, $icon in (journal, trends, settings), (stopwatch, piechart, gear) {
+      &--$(link) {
+        background-image: url('/img/icon-light-$(icon).svg');
+      }
+
+      &--$(link)&--active {
+        background-image: url('/img/icon-dark-$(icon).svg');
+      }
+    }
+  }
+}

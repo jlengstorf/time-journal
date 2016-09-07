@@ -1,0 +1,21 @@
+.app-shell {
+  margin: 0;
+
+  &__header {
+    border-bottom: 1px solid $color-pop;
+  }
+
+  &__main {
+    min-height: 460px;
+    margin: 0;
+    padding: 1.5rem 5%;
+    background-color: color( $color-background tint(80%) );
+  }
+
+  &__nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
