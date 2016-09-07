@@ -6,12 +6,20 @@ function addModifier(baseClass, modifier) {
   return modifier ? `${baseClass}--${modifier}` : null;
 }
 
-function bemmit(block) {
-  return (element, modifiers = []) => {
-    const baseClass = getBaseClass(block, element);
-    const modifierFn = addModifier.bind(null, baseClass);
-    return [baseClass].concat(modifiers.map(modifierFn)).join(' ');
-  };
+function getClassArray(block, element, modifiers = []) {
+  const baseClass = getBaseClass(block, element);
+  const modifierFn = addModifier.bind(null, baseClass);
+  return [baseClass].concat(modifiers.map(modifierFn));
 }
 
-export default bemmit;
+function getClassesAsString(block, element, modifiers) {
+  return getClassArray(block, element, modifiers).join(' ');
+}
+
+export default function bemmit(block) {
+  return getClassesAsString.bind(null, block);
+}
+
+export function bemmitArr(block) {
+  return getClassArray.bind(null, block);
+}
