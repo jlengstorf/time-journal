@@ -7,7 +7,7 @@ import Auth from './components/Auth';
 import Main from './components/Main';
 
 // Styles bundled via webpack, then extracted to a separate file.
-const styles = require('../css/main.css');
+import styles from '../css/main.css';
 
 class App extends Component {
 
@@ -18,11 +18,6 @@ class App extends Component {
       visibleForm: 'sign-up',
     };
 
-    // Whenever the auth state changes, we want to update the app’s state.
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({ user: user });
-    });
-
     // Fat arrow function means we don’t lose `this` in child components.
     this.toggleAuthVisibleForm = (visibleForm, event) => {
       event.preventDefault();
@@ -31,9 +26,25 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+
+    // Whenever the auth state changes, we want to update the app’s state.
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ user: user });
+    });
+  }
+
+  componentWillUnmount() {
+
+  }
+
   render() {
     if (this.state.user && this.state.user.email) {
-      return <Main user={this.state.user} />;
+      return (
+        <Main
+          user={this.state.user}
+        />
+      );
     } else {
       return (
         <Auth

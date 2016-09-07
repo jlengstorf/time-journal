@@ -12,7 +12,7 @@ module.exports = {
   context: path.join(__dirname, './app'),
   entry: {
     js: './js/app.js',
-    vendor: ['react', 'react-dom', 're-base'],
+    vendor: ['react', 'react-dom', 'firebase', 'moment'],
   },
   output: {
     path: path.join(__dirname, './public'),
@@ -64,6 +64,7 @@ module.exports = {
   postcss: () => [
     require('postcss-import')(),
     require('postcss-nested'),
+    require('postcss-each'),
     require('postcss-simple-vars'),
     require('postcss-cssnext')({ warnForDuplicates: false }),
     require('cssnano')(),
