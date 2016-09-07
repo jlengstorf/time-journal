@@ -1,0 +1,49 @@
+.user-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 5%;
+  border-top: 4px solid $color-pop;
+  border-bottom: 4px solid $color-accent-dark;
+  box-shadow: 0 2px 4px color( $color-main alpha(25%) );
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-main;
+    border-top: 2px solid $color-background;
+    border-bottom: 2px solid $color-accent-light;
+    z-index: -1;
+  }
+
+  &__image-wrap {
+    flex: 1 33%;
+    max-width: 40px;
+  }
+
+    &__image {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid $color-accent-dark;
+      border-radius: 50%;
+    }
+
+  &__details {
+    flex: 2 66%;
+    margin: 0;
+    margin-left: 0.75rem;
+    color: $color-background;
+    line-height: 1;
+  }
+
+    &__email {
+      display: block;
+      color: $color-accent-light;
+      font-size: 75%;
+      line-height: 1.5;
+    }
+}
