@@ -1,0 +1,10 @@
+/* TEAM */
+
+  Designer/Developer: Jason Lengstorf
+  Site: https://lengstorf.com
+  Twitter: @jlengstorf
+  Location: Austin, TX, USA
+
+/* THANKS */
+
+  Name: David Zukowski (https://github.com/davezuko/react-redux-starter-kit)

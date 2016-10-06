@@ -1,0 +1,15 @@
+/*
+ * # Media Query Variables
+ * To try and keep responsiveness to a minimum level of jank, let’s try to get
+ * as many elements as possible breaking at uniform points.
+ *
+ * Usage:
+       @media  $mq-xs {
+         .foo { color: red; }
+       }
+ */
+$mq-xs: (min-width: 480px);
+$mq-sm: (min-width: 768px);
+$mq-md: (min-width: 1024px);
+$mq-lg: (min-width: 1200px);
+$mq-xl: (min-width: 1400px);
